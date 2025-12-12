@@ -3,7 +3,7 @@ from routes.org_create import router as org_router
 
 app = FastAPI()
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 def health():
     return {"status": "ok"}
 
