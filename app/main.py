@@ -8,7 +8,11 @@ app = FastAPI(
 
 @app.get("/", tags=["system"])
 async def root():
-    return {"message": "Organization Management Backend is Running!"}
+    return {
+        "message": "Organization Management Backend is Running!",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }
 
 @app.get("/health", tags=["system"])
 async def health():
