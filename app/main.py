@@ -5,11 +5,11 @@ from app.routers.admin_auth import router as admin_router
 
 app = FastAPI()
 
-@app.get("/health")
+@app.get('/health')
 def health():
     return {"status": "ok"}
 
-# Register routers
+# Register all routers
 app.include_router(create_router)
 app.include_router(org_router)
 app.include_router(admin_router)
