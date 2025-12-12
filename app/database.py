@@ -1,19 +1,13 @@
-from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
+from motor.motor_asyncio import AsyncIOMotorClient
+import os
 
-from app.config import get_settings
+MONGO_URI = os.getenv("MONGO_URI")
+MASTER_DB = os.getenv("MASTER_DB", "master_db")
 
-settings = get_settings()
+client = AsyncIOMotorClient(MONGO_URI)
 
-_client: AsyncIOMotorClient | None = None
+master_db = client[MASTER_DB]
 
-
-def get_client() -> AsyncIOMotorClient:
-    global _client
-    if _client is None:
-        _client = AsyncIOMotorClient(settings.mongo_uri)
-    return _client
-
-
-def get_master_db() -> AsyncIOMotorDatabase:
-    return get_client()[settings.master_db_name]
+def get_org_collection(org_name: str):
+    return client[f"org_{org_name}"]
 

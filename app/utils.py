@@ -10,3 +10,4 @@ def slugify(name: str) -> str:
 def generate_id() -> str:
     return uuid.uuid4().hex
 
+
