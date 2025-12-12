@@ -1,4 +1,4 @@
-﻿from fastapi import Header, HTTPException
+from fastapi import Header, HTTPException
 
 from config.jwt import decode_token
 

@@ -1,4 +1,4 @@
-﻿from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr
 
 class OrgCreateRequest(BaseModel):
     organization_name: str
