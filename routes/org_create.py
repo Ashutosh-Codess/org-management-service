@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from config.db import master_db
+from app.database import master_db
 from models.org_models import OrgCreateRequest
 from passlib.hash import argon2
 

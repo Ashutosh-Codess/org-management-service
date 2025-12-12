@@ -1,12 +1,14 @@
-from pydantic import BaseModel, EmailStr, field_validator
+﻿from pydantic import BaseModel, EmailStr
 
 class OrgCreateRequest(BaseModel):
     organization_name: str
     email: EmailStr
     password: str
 
-    @field_validator("password")
-    def check_password_len(cls, v):
-        if len(v.encode("utf-8")) > 72:
-            raise ValueError("Password must be <= 72 bytes for bcrypt.")
-        return v
+class OrgUpdateModel(BaseModel):
+    old_organization_name: str
+    new_organization_name: str
+
+class AdminLoginModel(BaseModel):
+    email: EmailStr
+    password: str

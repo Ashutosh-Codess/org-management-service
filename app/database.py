@@ -1,13 +1,13 @@
-from motor.motor_asyncio import AsyncIOMotorClient
 import os
+from dotenv import load_dotenv
+from motor.motor_asyncio import AsyncIOMotorClient
 
-MONGO_URI = os.getenv("MONGO_URI")
-MASTER_DB = os.getenv("MASTER_DB", "master_db")
+env_path = os.path.abspath('.env')
+load_dotenv(env_path)
+
+MONGO_URI = os.getenv('MONGO_URI')
+if not MONGO_URI:
+    raise Exception('MONGO_URI not set')
 
 client = AsyncIOMotorClient(MONGO_URI)
-
-master_db = client[MASTER_DB]
-
-def get_org_collection(org_name: str):
-    return client[f"org_{org_name}"]
-
+master_db = client['master_db']

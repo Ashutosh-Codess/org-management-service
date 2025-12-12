@@ -1,22 +1,14 @@
-from fastapi import FastAPI
-from app.routers import router
+﻿from fastapi import FastAPI
+from routes.org_routes import router as org_router
+from routes.org_create import router as create_router
+from routes.admin_auth import router as admin_router
 
-app = FastAPI(
-    title="Organization Management Service",
-    version="1.0.0"
-)
+app = FastAPI()
 
-@app.get("/", tags=["system"])
-async def root():
-    return {
-        "message": "Organization Management Backend is Running!",
-        "docs": "/docs",
-        "redoc": "/redoc"
-    }
+@app.get('/health')
+def health():
+    return {'status': 'ok'}
 
-@app.get("/health", tags=["system"])
-async def health():
-    return {"status": "ok"}
-
-app.include_router(router)
-
+app.include_router(create_router)
+app.include_router(org_router)
+app.include_router(admin_router)
