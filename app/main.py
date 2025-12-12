@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Org Management Service Running Successfully!"}
+    return {"message": "Org Management Service Running"}
 
 app.include_router(org_router)
 app.include_router(create_router)
