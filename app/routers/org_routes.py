@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from app.database import master_db
 from bson import ObjectId
-from models.org_models import OrgUpdateModel
+from app.models.org_models import OrgUpdateModel
 from deps.admin_deps import get_current_admin
 
 router = APIRouter(prefix="/org", tags=["Organization Management"])

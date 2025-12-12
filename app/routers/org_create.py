@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.database import master_db
-from models.org_models import OrgCreateRequest
+from app.models.org_models import OrgCreateRequest
 from passlib.hash import argon2
 
 router = APIRouter()
