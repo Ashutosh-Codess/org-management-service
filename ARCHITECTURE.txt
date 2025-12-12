@@ -1,0 +1,17 @@
+﻿Architecture Diagram (Text Form)
+
+[Client] 
+   ↓
+[FastAPI App on Render] 
+   ↓
+[Master Database - MongoDB]
+   - organizations collection
+   - admins collection
+   - dynamic org collections: org_<name>
+
+Key Components:
+- FastAPI Routers
+- JWT Authentication
+- Argon2 Password Hashing
+- Motor (Async Mongo Client)
+

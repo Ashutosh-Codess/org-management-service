@@ -1,0 +1,20 @@
+﻿{
+  "info": {
+    "name": "Org Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Organization",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"organization_name\": \"demo\", \"email\": \"admin@demo.com\", \"password\": \"Test123\" }"
+        },
+        "url": "{{BASE_URL}}/org/create"
+      }
+    }
+  ]
+}
