@@ -10,5 +10,10 @@ async def health():
     return {"status": "ok"}
 
 
-app.include_router(router)
+# ✅ ADD THIS ROUTE
+@app.get("/", tags=["system"])
+async def root():
+    return {"message": "Organization Management Service is running!"}
 
+
+app.include_router(router)
