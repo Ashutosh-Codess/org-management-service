@@ -1,4 +1,4 @@
-﻿from fastapi import FastAPI
+from fastapi import FastAPI
 
 from app.routers.org_routes import router as org_router
 from app.routers.org_create import router as create_router
