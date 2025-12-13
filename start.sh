@@ -1,2 +1,5 @@
-﻿#!/bin/bash
-uvicorn app.main:app --host 0.0.0.0 --port 
+﻿#!/usr/bin/env bash
+set -e
+
+echo "Starting FastAPI app on port ${PORT}"
+uvicorn app.main:app --host 0.0.0.0 --port ${PORT}
